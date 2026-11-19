@@ -1,71 +1,71 @@
 {
- "time": "2026-11-19 09:14:01",
- "name": "B-bcinit-u125",
- "desc": "PPO from BC(x_matrix) init, league v1, update 125",
- "folder": "/home/minjun_dev/bomb/runs/mini/snap1/B_bcinit",
+ "time": "2026-11-19 09:48:51",
+ "name": "E-v2-draw3-final-u628",
+ "desc": "PPO 64x6: stage 1 = 200 updates on league v1 (draw -0.1, loss -0.4), stage 2 = 628 updates on league v2 (draw -0.3, loss -0.5)",
+ "folder": "/home/minjun_dev/bomb/runs/mini/cand/E_final",
  "games": 200,
  "seed0": 1000000,
- "ms_per_act": 3.623,
+ "ms_per_act": 1.351,
  "val": {
-  "score": 64.5,
-  "worst": 8.0,
+  "score": 67.67,
+  "worst": 5.0,
   "worst_opp": "zoo.val_hunter",
-  "loss": 3.22,
-  "draw": 32.28,
-  "self_bomb": 4.72,
-  "timeout": 27.67,
+  "loss": 1.39,
+  "draw": 30.94,
+  "self_bomb": 0.56,
+  "timeout": 28.17,
   "per_opp": {
    "zoo.val_smart": [
-    42,
-    148,
-    10
+    64,
+    134,
+    2
    ],
    "zoo.val_hunter": [
-    16,
-    162,
-    22
+    10,
+    181,
+    9
    ],
    "zoo.val_tricky": [
-    45,
-    143,
-    12
+    62,
+    129,
+    9
    ],
    "zoo.param:9000": [
-    199,
-    1,
+    195,
+    5,
     0
    ],
    "zoo.param:9001": [
-    199,
-    1,
+    198,
+    2,
     0
    ],
    "zoo.param:9002": [
-    197,
-    3,
+    196,
+    4,
     0
    ],
    "zoo.param:9003": [
-    159,
-    41,
-    0
+    174,
+    25,
+    1
    ],
    "zoo.param:9004": [
-    118,
-    68,
-    14
+    146,
+    50,
+    4
    ],
    "zoo.param:9005": [
-    186,
-    14,
+    173,
+    27,
     0
    ]
   }
  },
  "status": "keep",
  "incumbent": {
-  "name": "B-bcinit-u50",
-  "score": 62.33,
+  "name": "E-v2-draw3-u240",
+  "score": 67.56,
   "loss": 2.94
  }
 }

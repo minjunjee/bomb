@@ -6,7 +6,7 @@ import torch.nn.functional as F
 
 from bombcompetition.neural import CHANNELS, IN_CHANNELS  # the fixed input: (IN_CHANNELS, 9, 9)
 
-CFG = {'channels': 96, 'blocks': 8, 'norm': 'gn', 'head': 'gather', 'head_hidden': 256, 'sym': 1}
+CFG = {'channels': 64, 'blocks': 6, 'norm': 'gn', 'head': 'gather', 'head_hidden': 256, 'sym': 1}
 RETURN_VALUE = False  # training: (scores, value); submission: the 6 action scores only
 
 _ACTION_DELTAS = ((0, 0), (-1, 0), (1, 0), (0, -1), (0, 1), (0, 0))  # STAY UP DOWN LEFT RIGHT BOMB

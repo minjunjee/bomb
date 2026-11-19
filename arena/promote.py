@@ -4,6 +4,7 @@ the incumbent in best/, make it the new best (submission.py + submission.pth + s
     nice -n 10 .venv/bin/python -m arena.promote runs/exp/r1/a/best --name r1-a --desc "what was tried"
     ... --dry-run     grade and log only, never replace best/
     ... --games 200   games per validation opponent (default 200)
+    ... --force       make it the new best even if the comparison says otherwise (a decision taken elsewhere)
 
 Every call appends one line to runs/results.jsonl (the experiment log). The decision metric is the validation
 score = mean wins per 100 games over the VAL panel (bots never trained against); ties within 1 point go to the
@@ -53,6 +54,7 @@ def main(argv=None):
     ap.add_argument("--panel", default="val")
     ap.add_argument("--also", default="train", help="extra panel graded for information only ('' = none)")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--force", action="store_true", help="make it the new best whatever the comparison says")
     args = ap.parse_args(argv)
 
     folder = Path(args.folder)
@@ -82,6 +84,8 @@ def main(argv=None):
                 old = {**old, "val": summary(old_val), "games": args.games, "seed0": args.seed0}
                 (BEST / "grade.json").write_text(json.dumps(old, indent=1))
     keep = better(rec["val"], old["val"] if old else None)
+    if args.force and not keep:
+        keep, rec["forced"] = True, True
     rec["status"] = "dry-run" if args.dry_run else ("keep" if keep else "discard")
     rec["incumbent"] = None if old is None else {"name": old.get("name"), "score": old["val"]["score"], "loss": old["val"]["loss"]}
     LOG.parent.mkdir(parents=True, exist_ok=True)

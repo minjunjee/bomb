@@ -1,3 +1,3 @@
-2026-11-19 09:14:01  B-bcinit-u125: PPO from BC(x_matrix) init, league v1, update 125
-from /home/minjun_dev/bomb/runs/mini/snap1/B_bcinit
-val score 64.5 wins/100, losses 3.22/100, 3.623 ms/act
+2026-11-19 09:48:51  E-v2-draw3-final-u628: PPO 64x6: stage 1 = 200 updates on league v1 (draw -0.1, loss -0.4), stage 2 = 628 updates on league v2 (draw -0.3, loss -0.5)
+from /home/minjun_dev/bomb/runs/mini/cand/E_final
+val score 67.67 wins/100, losses 1.39/100, 1.351 ms/act

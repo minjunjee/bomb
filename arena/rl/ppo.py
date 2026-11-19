@@ -32,6 +32,8 @@ Options
                           side; self-play second sides come on top) (default 20e6). The schedules run over this.
     --time-limit SEC      stop (cleanly, with the final export and evaluation) after SEC seconds of wall time in this
                           session even if --total-steps is not reached (default 0 = no limit)
+    --stop-update N       stop (cleanly, with the final export and evaluation) once update N is done (default 0 = off).
+                          Unlike --total-steps it does not change the schedules: use it to end a run at an exact update.
   environments
     --workers W           worker processes (default 64)
     --envs-per-worker E   environments per worker (default 32)
@@ -124,6 +126,7 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--total-steps", type=float, default=20e6)
     ap.add_argument("--time-limit", type=float, default=0.0)
+    ap.add_argument("--stop-update", type=int, default=0)
     ap.add_argument("--workers", type=int, default=64)
     ap.add_argument("--envs-per-worker", type=int, default=32)
     ap.add_argument("--groups", type=int, default=2)
@@ -701,6 +704,9 @@ def main(argv=None):
         while trainer.steps < args.total_steps:
             if args.time_limit > 0 and time.time() - t_session >= args.time_limit:
                 say(f"[ppo] time limit of {args.time_limit:.0f}s reached at {trainer.steps} steps")
+                break
+            if args.stop_update > 0 and trainer.update_idx >= args.stop_update:
+                say(f"[ppo] stop update {args.stop_update} reached at {trainer.steps} steps")
                 break
             t0 = time.time()
             roll = trainer.collect()
