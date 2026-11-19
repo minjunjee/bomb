@@ -1,0 +1,71 @@
+{
+ "time": "2026-11-19 09:14:01",
+ "name": "B-bcinit-u125",
+ "desc": "PPO from BC(x_matrix) init, league v1, update 125",
+ "folder": "/home/minjun_dev/bomb/runs/mini/snap1/B_bcinit",
+ "games": 200,
+ "seed0": 1000000,
+ "ms_per_act": 3.623,
+ "val": {
+  "score": 64.5,
+  "worst": 8.0,
+  "worst_opp": "zoo.val_hunter",
+  "loss": 3.22,
+  "draw": 32.28,
+  "self_bomb": 4.72,
+  "timeout": 27.67,
+  "per_opp": {
+   "zoo.val_smart": [
+    42,
+    148,
+    10
+   ],
+   "zoo.val_hunter": [
+    16,
+    162,
+    22
+   ],
+   "zoo.val_tricky": [
+    45,
+    143,
+    12
+   ],
+   "zoo.param:9000": [
+    199,
+    1,
+    0
+   ],
+   "zoo.param:9001": [
+    199,
+    1,
+    0
+   ],
+   "zoo.param:9002": [
+    197,
+    3,
+    0
+   ],
+   "zoo.param:9003": [
+    159,
+    41,
+    0
+   ],
+   "zoo.param:9004": [
+    118,
+    68,
+    14
+   ],
+   "zoo.param:9005": [
+    186,
+    14,
+    0
+   ]
+  }
+ },
+ "status": "keep",
+ "incumbent": {
+  "name": "B-bcinit-u50",
+  "score": 62.33,
+  "loss": 2.94
+ }
+}
